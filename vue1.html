@@ -4,16 +4,43 @@
 	<title>vue1</title>
 </head>
 <body>
-
+<div id="app">
+	{{ data }}
+</div>
+<span>Messsage:{{ msg }}</span>
 </body>
+<p>Using v-html dirrctive:<span v-html="rawHtml"></span></p>
+<script src="./node_modules/vue/dist/vue.min.js"></script>
 <script type="text/javascript">
-	var vm = new Vue({
-		data:{
-			a:1
-		},
-		created:function(){
-			console.log('a is:' + this.a);
-		}
-	})
+/*var vm = new Vue({
+	data:{
+		a:1
+	},
+	created:function(){
+		console.log('a is:' + this.a);
+	}
+})*/
+
+/*var data = { a: 1 };
+var app = new Vue({
+	el:'#app',
+	data: {
+		data
+	}
+})
+app.data.a = 2;
+app.data.b = 3;
+console.log(data.a)*/
+
+new Vue({
+	data:{
+		a:1
+	},
+	created: function(){
+		console.log('a is: ' + this.a)
+	}
+})
+//https://cn.vuejs.org/v2/guide/syntax.html    特性
 </script>
+
 </html>
