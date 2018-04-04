@@ -4,44 +4,115 @@
 	<title>1</title>
 </head>
 <body>
-<div>0</div>
+<!-- <div>0</div>
 <div>1</div>
 <div>2</div>
-<div>3</div>
+<div>3</div> -->
+<div></div>
 </body>
 <script src="./js/1.js"></script>
 <script type="text/javascript">
-	/*function foo(){
-		var something = "cool";
-		var another = [1,2,3];
-		function doSomething(){
-			console.log(something);
-		}
-		function doAnother(){
-			console.log(another.join("!"));
-		}
-	}*/
-	var x = "globol value";
-    var getValue = function(){
-        alert(x);    //弹出"undefined"
-        
-        alert(x);    //弹出"local value";
-        var x = "local value";
-    }
-    getValue();
-    /*function test(o){
-        var i = 0;
-        if(typeof o == "object"){
-           var j = 0;                    
-            for(var k=0; k < 10; k++){
-                document.write(k);
-            }
-            document.write(k);            //k是可以被访问到的,即使他在for子句内
+/*function foo(){
+	var something = "cool";
+	var another = [1,2,3];
+	function doSomething(){
+		console.log(something);
+	}
+	function doAnother(){
+		console.log(another.join("!"));
+	}
+}*/
+
+/*var x = "globol value";
+var getValue = function(){
+    alert(x);    //弹出"undefined"
+    
+    alert(x);    //弹出"local value";
+    var x = "local value";
+}
+getValue();*/
+
+/*function test(o){
+    var i = 0;
+    if(typeof o == "object"){
+       var j = 0;                    
+        for(var k=0; k < 10; k++){
+            document.write(k);
         }
-       document.write(j);            //说明j是可以被访问到的,即使他在if子句内  
+        document.write(k);            //k是可以被访问到的,即使他在for子句内
     }
-    var s = new Object();
-    test(s);*/
+   document.write(j);            //说明j是可以被访问到的,即使他在if子句内  
+}
+var s = new Object();
+test(s);*/
+
+/*var Pet = {
+    word : 'qwe',
+    speak : function (say){
+        console.log(say + '' + this.word)
+    }
+}
+Pet.speak('Speak');
+var Dog = {
+    word : 'Wang'
+}
+Pet.speak.call(Dog,'Speak');*/
+
+/*function Animal(name){
+    this.name = name;
+    this.showName = function(){
+    alert(this.name);    
+    }
+}
+
+function Cat(name){
+  Animal.apply(this,[name]);    
+}
+
+var cat = new Cat("咕咕");
+cat.showName();*/
+
+// Animal.call(this,name);
+
+/*for(let i=0; i<2; i++){
+    console.log(i);
+}
+console.log(i)*/
+
+/*var a = {
+    name : "volle",
+    age : 20,
+    sex : "male"
+}
+
+console.log(a.name);
+console.log(a.sex);
+
+with(a){
+    console.log(name);
+    console.log(sex);
+}*/
+
+/*var foo = true,baz = 10;
+if(foo){
+    let bar = 3;
+    if(baz > bar){
+        console.log(baz);
+    }
+}*/
+
+/*try{throw 2;}catch(a){
+    console.log(a);
+}
+
+console.log(a)*/
+
+for(var i = 1; i<=5; i++){
+    setTimeout(function timer(){
+        console.log(i);
+    },1000)
+}
+
 </script>  
 </html>
 

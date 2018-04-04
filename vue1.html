@@ -2,14 +2,24 @@
 <html>
 <head>
 	<title>vue1</title>
+	<style type="text/css">
+		#dynamicId{
+			width: 40%;
+			height: 100px;
+			background:linear-gradient(140deg, #00FF7F , #00FFFF);
+			/*background: linear-gradient(to right, red , blue);*/
+		}
+	</style>
 </head>
 <body>
+<div id="dynamicId"></div>
 <div id="app">
 	{{ data }}
 </div>
 <span>Messsage:{{ msg }}</span>
 </body>
 <p>Using v-html dirrctive:<span v-html="rawHtml"></span></p>
+<div v-bind:id='dynamicId'></div>
 <script src="./node_modules/vue/dist/vue.min.js"></script>
 <script type="text/javascript">
 /*var vm = new Vue({
@@ -32,15 +42,17 @@ app.data.a = 2;
 app.data.b = 3;
 console.log(data.a)*/
 
-new Vue({
+/*new Vue({
 	data:{
 		a:1
 	},
 	created: function(){
 		console.log('a is: ' + this.a)
 	}
-})
-//https://cn.vuejs.org/v2/guide/syntax.html    特性
+})*/
+
+var dynamicId = "sdasd";
+
 </script>
 
 </html>

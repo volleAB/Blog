@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2</title>
+</head>
+<body>
+<style>
+.box{
+  background-color: #ff0;
+}
+.textColor{
+  color: #000;
+}
+.textSize{
+  font-size: 30px;
+}
+</style>
+ 
+<div id="app">
+  <span class="box" :class="{'textColor':isColor, 'textSize':isSize}">我是字</span>
+</div>
+ 
+
+</body>
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<script>
+　　new Vue({
+  　　el: "#app",
+　　data:{
+  　　isColor:null,
+  　　isSize:true
+　　}
+　　})
+</script>
+</html>
