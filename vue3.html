@@ -1,38 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>3</title>
+    <meta charset="UTF-8">
+    <title>3</title>
 </head>
 <body>
-<template>
-  <div id="todolist">
-    <ul>
-      <li v-for="todo in todos">
-        <todo v-bind:todo="todo"
-              v-bind:id="todo.id">  //这里也可以是v-bind:key="todo.id"
-        </todo>
-      </li>
-    </ul>
-  </div>
-</template>
-
+<style>
+    .hd1{ color: red;}
+    .hd2{ color: green;}
+    img{
+      width: 100%;
+    }
+</style>
+<div id="hdcms">
+    <h1 v-once="">{{n}}</h1>
+    {{n+3}}
+    <h1 :class="'hd'+n">你好，中国</h1>
+    <button v-bind:disabled="isButtonDisabled">{{isButtonDisabled}}</button>
+    <input type="text" v-model="n"/>
+    <br>
+    <input type="radio" v-model="n" value="1">红色
+    <input type="radio" v-model="n" value="2">绿色
+    <p v-if="seen">现在你看到我了</p>
+    <a :shape="shape" v-on:click="doSomething">{{shape}}</a>
+    <!-- <img v-bind:src="src"> -->
+</div>
+<div id="example">
+  {{ message.split('').reverse().join('') }}
+</div>
+<div id="example2">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+  <i>{{now}}</i>
+</div>
+<script src="./node_modules/vue/dist/vue.min.js"></script>
 <script>
-  import Todo from './Todo.vue'
+  var app = new Vue({ //生成对象的方式
+      el: "#hdcms",  //el:是元素
+      data:{           //data：数据
+          n: 1,
+          seen: "seen",
+          isButtonDisabled: "autofocus",
+          src: "https://images.unsplash.com/photo-1522717887140-b78153b59e52?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjIxNTV9&s=0128e159a1a711911132bfca433da492",
+          shape: 'circle'
+      }
+  });
 
-  export default {
-    components: {
-      Todo
+  var ex = new Vue({
+    el:"#example",
+    data:{
+      message: 'Hello'
+    }
+  })
+
+  var ex2 = new Vue({
+    el:"#example2",
+    data: {
+    message: 'Hello'
     },
-    data: function () {
-      return {
-        todos: [
-          { text: 'Learn Vue' },
-          { text: 'Do hard things' }
-        ]
+    computed: {
+      // 计算属性的 getter
+      reversedMessage: function () {
+        // `this` 指向 vm 实例
+        return this.message.split('').reverse().join('')
+      }
+    },
+    methods: {
+      now: function(){
+        return Date.now()
       }
     }
+  })
+
+  function doSomething(){
+    alert('stupid');
   }
 </script>
-
 </body>
 </html>
