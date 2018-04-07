@@ -23,6 +23,7 @@
     <input type="radio" v-model="n" value="2">绿色
     <p v-if="seen">现在你看到我了</p>
     <a :shape="shape" v-on:click="doSomething">{{shape}}</a>
+    <a @click="doSomething">{{shape}}</a>
     <!-- <img v-bind:src="src"> -->
 </div>
 <div id="example">
