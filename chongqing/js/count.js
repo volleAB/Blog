@@ -1,0 +1,1 @@
+document.write("<script src='http://tb.53kf.com/kf.php?arg=10146820&style=1'></script>");
