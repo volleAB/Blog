@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>promise1</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// const promise = new Promise(function(resolve, reject) {
+	// 	//
+	// 	resolve("ada");
+	// }).then((res) => {
+	// 	alert(res);
+	// })
+	callback = () => {
+		alert("asdad");
+	}
+	f1 = (callback) => {
+		setTimeout( () => {
+　　　　　　console.log("f1");
+　　　　　　callback();
+　　　　}, 1000);
+	}
+	f1();
+</script>
+</html>
