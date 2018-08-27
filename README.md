@@ -1,6 +1,6 @@
 # 日常练习
 
-## 这是我每天练习js的库
+## 练习
 
  **Practice makes perfect.**
 

@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
     <title>methods Option</title>
 </head>
 <body>
     <h1>methods Option</h1>
     <hr>
     <div id="app">
-        {{ a }}
+        {{a}}
         <p><button @click="add(2)">add</button></p>
+        <p><button @click="less(2)">add</button></p>
+        <p>{{now}}</p>
     </div>
- 
+    <div v-bind:class=" active: isActive "></div>
+    <div id="example">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
     <script type="text/javascript">
+        data: {
+            isActive: true
+        }
         var app=new Vue({
             el:'#app',
             data:{
@@ -21,11 +31,32 @@
             },
             methods:{
                 add:function(num){
-                    if(num!=''){this.a+=num}
+                    if(num!=0){this.a+=num}
                     else{this.a++}
+                },
+                less:function(num){
+                    this.a--;
                 }
+            },
+            computed: {
+                now: function () {
+                    return Date.now()
+                },
             }
         })
+        var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    // 计算属性的 getter
+    reversedMessage: function () {
+      // `this` 指向 vm 实例
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
     </script>
 </body>
 </html>
