@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>load</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+        }
+        .circle {
+            /*display: none;*/
+            width: calc(20% - 50px);
+            height: calc(20% - 50px);
+            border-radius: 100%;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="circle" id="app">123</div>
+<video autoplay="autoplay" muted loop="loop" controls="controls" id="video">
+  <source src="http://mp4.vjshi.com/2018-05-20/2c80cf8a0708106bb8f6fd8f69540748.mp4" type="video/mp4" />
+  <!-- <source src="http://grandtour.myswitzerland.com/en/video/150330_Intro_original_handbreak_h264_2000kb.mp4" type="video/mp4" /> -->
+Your browser does not support the video tag.
+</video>
+<!-- <video id="bg-video" autoplay="autoplay"  controls="controls">
+    <source src="http://grandtour.myswitzerland.com/en/video/150330_Intro_original_handbreak_h264_2000kb.mp4" type="video/mp4">
+    <source src="http://grandtour.myswitzerland.com/en/video/150330_Intro_original_totalVidCon_libtheora_2500kb.ogg" type="video/ogg">
+</video> -->
+<script>
+    let time = new Date()
+    // console.log(time)
+    // document.onreadystatechange = () => {
+    //     if(document.readyState == "complete") {
+    //         let nowTime = new Date()
+    //         let a = nowTime - time
+    //         console.log(a,"complete")
+            let oC = document.querySelector('.circle')
+    //     }
+    // }
+    // let oVideo = document.getElementById('video1')
+    // console.log(oVideo)
+    // oVideo.onended = () => {
+    //     console.log('complete')
+    // }
+    var video = document.getElementById("video")
+    // audio.loop = false;
+    video.addEventListener('canplay', function (res) {
+        // show.style.display = 'block'
+        console.log('complete')
+        console.log(res)
+    });
+    let oApp = document.getElementById('app')
+    let loadEle = document.createElement('div')
+    loadEle.innerHTML = '<span>life</span>'
+    oApp.appendChild(loadEle)
+</script>
+</body>
+</html>

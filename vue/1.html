@@ -7,55 +7,10 @@
 <!-- <div>0</div>
 <div>1</div>
 <div>2</div>
-<div>3</div> -->
-<div></div>
+<div>3</div>
+<div></div> -->
 </body>
 <script type="text/javascript">
-    /*var aDiv = document.getElementsByTagName('div');
-
-for(var i=0;i<aDiv.length;i++){
-    var a = aDiv[i];
-    a.index = i;
-    a.onclick = function (){
-        alert("Hello aDiv["+this.index+"]");
-    }
-}*/
-</script>
-<script type="text/javascript">
-/*function foo(){
-	var something = "cool";
-	var another = [1,2,3];
-	function doSomething(){
-		console.log(something);
-	}
-	function doAnother(){
-		console.log(another.join("!"));
-	}
-}*/
-
-/*var x = "globol value";
-var getValue = function(){
-    alert(x);    //弹出"undefined"
-    
-    alert(x);    //弹出"local value";
-    var x = "local value";
-}
-getValue();*/
-
-/*function test(o){
-    var i = 0;
-    if(typeof o == "object"){
-       var j = 0;                    
-        for(var k=0; k < 10; k++){
-            document.write(k);
-        }
-        document.write(k);            //k是可以被访问到的,即使他在for子句内
-    }
-   document.write(j);            //说明j是可以被访问到的,即使他在if子句内  
-}
-var s = new Object();
-test(s);*/
-
 /*var Pet = {
     word : 'qwe',
     speak : function (say){
@@ -66,9 +21,10 @@ Pet.speak('Speak');
 var Dog = {
     word : 'Wang'
 }
-Pet.speak.call(Dog,'Speak');*/
+Pet.speak.call(Dog,'Speak');
 
-/*function Animal(name){
+
+function Animal(name){
     this.name = name;
     this.showName = function(){
     alert(this.name);    
@@ -80,14 +36,10 @@ function Cat(name){
 }
 
 var cat = new Cat("咕咕");
-cat.showName();*/
+cat.showName();
 
-// Animal.call(this,name);
-
-/*for(let i=0; i<2; i++){
-    console.log(i);
-}
-console.log(i)*/
+Animal.call(this,name);
+*/
 
 /*var a = {
     name : "volle",
@@ -116,12 +68,6 @@ if(foo){
 }
 
 console.log(a)*/
-
-for(var i = 1; i<=5; i++){
-    setTimeout(function timer(){
-        console.log(i);
-    },1000)
-}
 
 </script>  
 </html>
