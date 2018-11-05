@@ -13,7 +13,7 @@ console.log(unique(arr))
 console.log(s)*/
 
 //利用for嵌套for，然后splice去重
-function unique(arr) {
+/*function unique(arr) {
     for(let i = 0; i<arr.length; i++) {
         for(let j = i + 1; j<arr.length; j++) {
             if(arr[i] == arr[j]) {
@@ -23,4 +23,20 @@ function unique(arr) {
         }
     }
     return arr
+}
+
+console.log(unique(arr))    //NaN和{}没有去重，两个null直接消失了*/
+
+//利用indexOf去重
+function unique(arr) {
+    if(!Array.isArray(arr)) {
+        console.log('type error!')
+        return
+    }
+    let array = []
+    for (let i = 0; i <arr.length; i++) {
+        if(array.indexOf(arr[i]) === -1) {
+            array.push(arr[i])
+        }
+    }
 }

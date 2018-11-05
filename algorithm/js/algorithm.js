@@ -18,7 +18,7 @@ let value = 'Newton'
 function newton (arr) {
     let res = document.getElementsByClassName('textarea')[0]
     let n = arr.length/2
-    console.log(n)
+    // console.log(n)
     let m = n + 1
     let l = n - 1
     let x = []
@@ -49,8 +49,8 @@ function newton (arr) {
             datas[j * m + i] = (datas[j * m + i - 1] - datas[(j - 1) * m + i - 1]).toFixed(5)
             //上面算出来的值除以对应的x相减的值
             datas[j * m + i] = (datas[j * m + i]/(x[j] - x[j - (i - 1)])).toFixed(5)
-            if(i>2) {
-                console.log(((x[j] - x[j - (i - 1)])).toFixed(5))
+            if(i==4) {
+                console.log((x[j]+' - '+x[j - (i - 1)]))
             }
         }
     }
