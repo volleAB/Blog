@@ -7,8 +7,104 @@
 <div></div>
 </body>
 <script type="text/javascript">
-let a = '"        <div class=single-header\">            <h3></h3>            <h2>学校举办学习贯彻落实《中国共产党纪律处分条例》 专题辅导讲座</h2>            <h3></h3>            <p class=\"article_author\">作者: 丁海江%uA0%uA0 发布时间: 2018-11-07%uA0%uA0 访问次数: <img style=\"FILTER: chroma(color:#ffffff)margin-bottom: -3px\" src=\"https://www.scuec.edu.cn/sitecount/articlecount?siteId=329&amppageId=1619&amparticleId=137489\"></p>        </div>        <div class=\"single-content\">            <table><tbody><tr><td><p>11月5日下午，学校举办党规党纪学习专题辅导报告会，邀请湖北省委党校徐伟教授对新修订的《中国共产党纪律处分条例》进行了专题解读和学习辅导，全校正科级以上党员干部、教学单位教工党支部书记和教研室主任近500人参加。报告会由校党委书记边境主持。</p><p><img src=\"https://www.scuec.edu.cn/picture/article/329/fe/ca/249d7af2474ba0117079624ce888/ef1dbe2d-b95f-4742-b92b-97127d814f44.jpg\"></p><p style=\"text-align:center\"><strong><span style=\"font-family:楷体, 楷体_gb2312, simkai\">学校举办党规党纪学习专题辅导报告会。</span></strong><span style=\"font-family:楷体, 楷体_gb2312, simkai\">纪委办公室、监察处供图</span></p><p>辅导报告深入解读了新修订《条例》的历史背景、指导思想，重点阐述了深入学习新《条例》的重大意义，并结合详实案例佐证了新《条例》体现的政治性、时代性和针对性，让全体党员干部对新《条例》有了更深刻的理解。对广大党员干部在学习贯彻中，深入领会《条例》、准确把握《条例》、精准适用《条例》、自觉遵守《条例》起到了很大的帮助作用。</p><p>边境在主持辅导报告中指出，新修订的《条例》体现了我们党坚持全面从严治党、依法治党、依规治党的政治勇气和坚定决心。他要求，全校党员干部要牢固树立“四个意识”、落实“两个维护”，严明政治纪律，坚决落实纪律建设的政治性要求；要切实增强学习《条例》的自觉性，学深悟透，真正做到统一思想、内化于心、外化于行；要自觉遵守、坚决执行，切实履行好主体责任；要不断强化自我监督，做执行《条例》的表率；要以学习贯彻新《条例》为契机，全面推进纪律建设在我校向纵深发展。</p><p style=\"text-align:right\">（编辑：刘虹%uA0 来源：纪委办公室、监察处）</p><p><br></p></td></tr></tbody></table>        </div>    "'
-let b = document.getElementsByTagName('div')[0]
-b.innerHTML = a
+/*let s1 = 'some string'
+let s3 = new String('some str')
+let s2 = s1.substring(2)
+let bool1 = new Boolean(false)
+let text = 'ca, bat, sat, fat'
+let result = text.replace(/(.at)/g, 'word ($1)')
+let s4 = s1.split(' ')
+console.log(s4)*/
+// console.log(bool1 && true)
+// console.log(s1.match(s2, 12))
+// console.log(s2)
+// Object.prototype.toString.call(q)
+// let num1 = 12.6
+// console.log(num1.toFixed(0))
+
+/*let person = new Object()
+person.name = 'Nicholas'
+person.age = 29
+person.job = 'Software Engineer'
+person.sayName = function () {
+    alert(this.name)
+}
+
+let a = person
+a.name = 'object'
+a.sayName()*/
+
+/*let book = {
+    _year: 2004,
+    edition: 21
+}
+Object.defineProperty(book, 'year', {
+    get: function () {
+        return this._year
+    },
+    set: function (newValue) {
+        if(newValue > 2004) {
+            this._year = newValue
+            this.edition = 'newValue - 2004'
+        }
+    }
+})*/
+/*Object.defineProperty(book, 'year', {
+    configurable: false,
+    value: '2018'
+})*/
+/*Object.defineProperty(book, 'year', {
+    configurable: true,
+    value: '2018'
+})*/
+/*console.log(book.year)
+delete book.year
+console.log(book.year)*/
+/*function myFun3 () {}
+
+myFun3.prototype = {
+    name: 'nabi',
+    age: 12,
+    show: function () {
+        alert(this.name, this.age)
+    }
+}
+
+let fun3 = new myFun3()
+fun3.show()*/
+let book = {}
+Object.defineProperties(book, {
+    _year: {
+        writeable: false,
+        value: '123'
+    },
+    edition: {
+        writeable: true,
+        value: 2,
+        // get: function () {
+        //     return this.value
+        // }
+    },
+    year: {
+        get: function () {
+            return this.year
+        },
+        set: function (newValue) {
+            this.year = newValue + 1000
+        }
+    }
+})
+book.edition = '456'
+console.log(book.edition)
+function Person(name, age, job) {
+    this.name = name
+    this.age = age
+    this.job = job
+    this.sayName = function() {
+        alert(this.name)
+    }
+}
+let a = new Person('lll', 12, 'engineer')
+a.sayName()
 </script>
 </html>

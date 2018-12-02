@@ -6,13 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
+<button class="btn" onclick="onButtonClick(1)">on</button>
 <script>
-  let a = '1'
-  a++
-  let b = 33
-  let c = 12
-  b = + c
-  console.log(a + ':'+ b + ':'+ c + ':')
+const actions = new Map([
+  [1, ['processing','IndexPage']],
+  [2, ['fail','FailPage']],
+  [3, ['fail','FailPage']],
+  [4, ['success','SuccessPage']],
+  [5, ['cancel','CancelPage']],
+  ['default', ['other','Index']]
+])
+/**
+ * 按钮点击事件
+ * @param {number} status 活动状态：1 开团进行中 2 开团失败 3 商品售罄 4 开团成功 5 系统取消
+ */
+sendLog = (x) => {
+    alert(x)
+}
+
+jumpTo = (x) => {
+    alert(x)
+}
+
+const onButtonClick = (status)=>{
+  let action = actions.get(status) || actions.get('default')
+  sendLog(action[0])
+  jumpTo(action[1])
+}
 </script>
 </body>
 </html>

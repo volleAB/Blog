@@ -4,8 +4,8 @@
 	<title>1</title>
 </head>
 <body>
-<!-- <div>0</div>
-<div>1</div>
+<div onclick="onButtonClick(1)">0</div>
+<!-- <div>1</div>
 <div>2</div>
 <div>3</div>
 <div></div> -->
@@ -40,8 +40,89 @@ cat.showName();
 
 Animal.call(this,name);
 */
+/*arguments
+for(var propName in window) {
+    document.write(propName)
+}*/
 
-</script>  
+let a = [1,2,3,4]
+let b = a
+let c = 12
+let d = c
+// b.push(5)
+//console.log(a)
+
+function foo (x) {
+    x.push(5)
+    x = [5,6,7,8]
+    x.push(9)
+    console.log('a:' + a)
+}
+
+function bar (x) {
+    x += 1
+}
+
+// foo(b)
+// console.log(a)
+bar(d)
+// console.log(d)  //12
+
+/*let q = new String('123')
+let w = "123"
+let e = new Object
+
+console.log(typeof q + ':' + typeof w + ':' + typeof e)
+console.log('q:' + Object.prototype.toString.call(q))*/
+
+sendLog = (res) => {
+    console.log(res)
+}
+
+jumpTo = (res) => {
+    console.log(res)
+}
+
+const onButtonClick = (status)=>{
+  if(status == 1){
+    sendLog('processing')
+    jumpTo('IndexPage')
+  }else if(status == 2){
+    sendLog('fail')
+    jumpTo('FailPage')
+  }else if(status == 3){
+    sendLog('fail')
+    jumpTo('FailPage')
+  }else if(status == 4){
+    sendLog('success')
+    jumpTo('SuccessPage')
+  }else if(status == 5){
+    sendLog('cancel')
+    jumpTo('CancelPage')
+  }else {
+    sendLog('other')
+    jumpTo('Index')
+  }
+}
+
+function qw() {
+    let color = 'blue'
+
+    function changeColor () {
+        if(color == 'blue') {
+            color = 'red'
+        } else {
+            color = 'blue'
+        }
+    }
+
+    changeColor()
+    alert(color)
+}
+
+qw()
+
+</script>
 </html>
 
 <!-- http://blog.csdn.net/chen_zw/article/details/18502937
