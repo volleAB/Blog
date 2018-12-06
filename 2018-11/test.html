@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #999;
+        }
+        .index-bg-w {
+            width: 1000px;
+            height: 500px;
+            padding-top: 40px;
+            margin: 0 auto;
+            margin-bottom: 0;
+        }
+        .index-bg-inner {
+            position: relative;
+            width: 1000px;
+            height: 500px;
+        }
+        .index-bg-inner .index-bg {
+            position: absolute;
+            width: 1000px;
+            height: 500px;
+            opacity: 0;
+        }
+        .index-bg.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="index-bg-w">
+        <div class="index-bg-inner">
+            <img src="https://browser.qq.com/static/index-bg.jpg" alt="" class="index-bg active">
+            <img src="https://browser.qq.com/static/index-bg-black.jpg" alt="" class="index-bg">
+        </div>
+    </div>
+</body>
+<script>
+    let oCon = document.getElementsByClassName('index-bg-w')[0]
+    let aImg = document.getElementsByClassName('index-bg')
+    let animated = true
+    let newOpacity, newOpacity2, temp, temp2
+    indexBg = () => {
+        if(aImg[1].classList.contains('active')) {
+            temp = 0
+            temp2 = 1
+        } else {
+            temp = 1
+            temp2 = 0
+        }
+        newOpacity = aImg[temp].style.opacity
+        newOpacity2 = aImg[temp2].style.opacity
+        animated = true
+        addOpacity = () => {
+            if(aImg[temp].classList.contains('active')) {
+                animated = false
+                console.log('temp:' + temp)
+                console.log('11')
+            }
+            if(animated) {
+                setTimeout(addOpacity, 1)
+            }
+            newOpacity = aImg[temp].style.opacity
+            newOpacity = newOpacity == ''? 0 : parseFloat(aImg[temp].style.opacity)
+            aImg[temp].style.opacity = newOpacity + (Math.random() / 100)
+            if(aImg[temp].style.opacity >= 1) {
+                aImg[temp].style.opacity = 1
+                aImg[temp].classList.add('active')
+            }
+            newOpacity2 = aImg[temp2].style.opacity
+            newOpacity2 = newOpacity2 == ''? 1 : parseFloat(aImg[temp2].style.opacity)
+            aImg[temp2].style.opacity = newOpacity2 - (Math.random() / 80)
+            if(aImg[temp2].style.opacity <= 0) {
+                aImg[temp2].style.opacity = 0
+                aImg[temp2].classList.remove('active')
+            }
+        }
+        addOpacity()
+    }
+    let timer = setInterval(indexBg, 6000)
+    oCon.onmouseover = () => {
+        console.log('3')
+        clearInterval(timer)
+    }
+</script>
+</html>

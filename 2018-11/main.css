@@ -84,6 +84,11 @@ header nav a:hover {
     top: 0;
     width: 100%;
     height: 550px;
+    opacity: 0;
+}
+
+.first-screen .index-bg-w .index-bg-inner .active {
+    opacity: 1;
 }
 
 .index-doodles {
@@ -190,8 +195,18 @@ header nav a:hover {
     color: green;
 }
 
+.blue .icon-xiazai {
+    display: inline;
+    font-size: 36px;
+    color: #0083e4;
+}
+
 .green .qb-btn-big-text {
     color: green;
+}
+
+.blue .qb-btn-big-text {
+    color: #0083e4;
 }
 
 .index-bg-inner .active {
