@@ -1,6 +1,16 @@
-/*first-screen*/
+/*first-screen && header*/
 
-let newOpacity, newOpacity2, temp, temp2, scrollTop, i
+let i
+let oHeader = document.getElementById('header')
+let oSider_bar = document.getElementsByClassName('sider-bar')[0]
+let oSider_bar_left = oSider_bar.getElementsByClassName('sider-left')[0]
+let oSider_bar_right = oSider_bar.getElementsByClassName('sider-right')[0]
+let oSider_bar_left_aItem = oSider_bar_left.getElementsByClassName('sider-switch-item')
+let zixun = oSider_bar_left.getElementsByClassName('icon-zixun')[0]
+let play = oSider_bar_left.getElementsByClassName('icon-play')[0]
+let zhibo = oSider_bar_left.getElementsByClassName('icon-zhibo')[0]
+let oSider_bar_aImg = oSider_bar_right.getElementsByTagName('img')
+let headerDownLoad = oHeader.getElementsByClassName('download')[0]
 let firstScreen = document.getElementsByClassName('first-screen')[0]
 let oArrow = firstScreen.getElementsByClassName('arrow-download')[0]
 let aImg = firstScreen.getElementsByClassName('index-bg')
@@ -9,15 +19,24 @@ let downLoad = firstScreen.getElementsByClassName('qb-btn-big')[0]
 let oCon = firstScreen.getElementsByClassName('index-bg-w')[0]
 let animated = true
 
+let map = [zixun, play, zhibo]
+
 document.body.onmousewheel = function (event) {
-    scrollTop = document.documentElement.scrollTop
-    if(scrollTop > 0) {
-        console.log(oArrow.classList)
+    let scrollTop = document.documentElement.scrollTop
+    if(scrollTop > 200) {
         oArrow.classList.remove('updown')
+        headerDownLoad.classList.remove('hidden')
+    } else if(scrollTop == 200) {
+        oArrow.classList.add('updown')
+        headerDownLoad.classList.add('hidden')
+    } else {
+        return
     }
 }
 
+/*slide*/
 indexBg = () => {
+    let newOpacity, newOpacity2, temp, temp2
     if(aImg[1].classList.contains('active')) {
         temp = 0
         temp2 = 1
@@ -65,8 +84,12 @@ indexBg = () => {
 }
 let timer = setInterval(indexBg, 6000)
 for(i = 0; i < aDoodles.length; i++) {
+    aDoodles[i].onmouseout = function () {
+        timer = setInterval(indexBg, 3800)
+    }
     aDoodles[i].index = i
     aDoodles[i].onmouseover = function () {
+        clearInterval(timer)
         if(this.index == 0) {
             aDoodles[0].classList.add('active')
             aDoodles[1].classList.remove('active')
@@ -89,10 +112,68 @@ for(i = 0; i < aDoodles.length; i++) {
     }
 }
 
-firstScreen.onmouseover = function () {
-    clearInterval(timer)
-}
+/*sider-bar*/
 
-firstScreen.onmouseout = function () {
-    timer = setInterval(indexBg, 6000)
+indexBg2 = () => {
+    let newOpacity, newOpacity2, newOpacity3, temp, temp2, temp3
+    if(oSider_bar_aImg[0].classList.contains('active')) {
+        temp = 1
+        temp2 = 0
+        temp3 = 2
+    } else if(oSider_bar_aImg[1].classList.contains('active')) {
+        temp = 2
+        temp2 = 1
+        temp3 = 0
+    } else if(oSider_bar_aImg[2].classList.contains('active')) {
+        temp = 0
+        temp2 = 2
+        temp3 = 1
+    } else {
+        return
+    }
+    map[temp].classList.add('active')
+    map[temp2].classList.remove('active')
+    map[temp3].classList.remove('active')
+    newOpacity = oSider_bar_aImg[temp].style.opacity
+    newOpacity2 = oSider_bar_aImg[temp2].style.opacity
+    newOpacity3 = oSider_bar_aImg[temp3].style.opacity
+    animated = true
+    addOpacity = () => {
+        if(oSider_bar_aImg[temp].classList.contains('active')) {
+            animated = false
+        }
+        if(animated) {
+            // if(temp == 0) {
+            //     aDoodles[0].classList.add('active')
+            //     aDoodles[1].classList.remove('active')
+            // } else {
+            //     aDoodles[1].classList.add('active')
+            //     aDoodles[0].classList.remove('active')
+            // }
+            setTimeout(addOpacity, 1)
+        }
+        newOpacity = oSider_bar_aImg[temp].style.opacity
+        newOpacity = newOpacity == ''? 0 : parseFloat(oSider_bar_aImg[temp].style.opacity)
+        oSider_bar_aImg[temp].style.opacity = newOpacity + (Math.random() / 100)
+        if(oSider_bar_aImg[temp].style.opacity >= 1) {
+            oSider_bar_aImg[temp].style.opacity = 1
+            oSider_bar_aImg[temp].classList.add('active')
+        }
+        newOpacity2 = oSider_bar_aImg[temp2].style.opacity
+        newOpacity2 = newOpacity2 == ''? 1 : parseFloat(oSider_bar_aImg[temp2].style.opacity)
+        oSider_bar_aImg[temp2].style.opacity = newOpacity2 - (Math.random() / 80)
+        if(oSider_bar_aImg[temp2].style.opacity <= 0) {
+            oSider_bar_aImg[temp2].style.opacity = 0
+            oSider_bar_aImg[temp2].classList.remove('active')
+        }
+        newOpacity3 = oSider_bar_aImg[temp3].style.opacity
+        newOpacity3 = newOpacity3 == ''? 1 : parseFloat(oSider_bar_aImg[temp3].style.opacity)
+        oSider_bar_aImg[temp3].style.opacity = newOpacity2 - (Math.random() / 80)
+        if(oSider_bar_aImg[temp3].style.opacity <= 0) {
+            oSider_bar_aImg[temp3].style.opacity = 0
+            oSider_bar_aImg[temp3].classList.remove('active')
+        }
+    }
+    addOpacity()
 }
+let timer2 = setInterval(indexBg2, 3800)
