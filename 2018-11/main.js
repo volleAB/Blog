@@ -17,22 +17,11 @@ let aImg = firstScreen.getElementsByClassName('index-bg')
 let aDoodles = firstScreen.getElementsByClassName('index-doodles-item')
 let downLoad = firstScreen.getElementsByClassName('qb-btn-big')[0]
 let oCon = firstScreen.getElementsByClassName('index-bg-w')[0]
+let oVideo = document.getElementsByClassName('skin-video')[0]
+let scrollTop = document.documentElement.scrollTop
 let animated = true
 
 let map = [zixun, play, zhibo]
-
-document.body.onmousewheel = function (event) {
-    let scrollTop = document.documentElement.scrollTop
-    if(scrollTop > 200) {
-        oArrow.classList.remove('updown')
-        headerDownLoad.classList.remove('hidden')
-    } else if(scrollTop == 200) {
-        oArrow.classList.add('updown')
-        headerDownLoad.classList.add('hidden')
-    } else {
-        return
-    }
-}
 
 /*slide*/
 indexBg = () => {
@@ -161,14 +150,14 @@ indexBg2 = () => {
         }
         newOpacity2 = oSider_bar_aImg[temp2].style.opacity
         newOpacity2 = newOpacity2 == ''? 1 : parseFloat(oSider_bar_aImg[temp2].style.opacity)
-        oSider_bar_aImg[temp2].style.opacity = newOpacity2 - (Math.random() / 80)
+        oSider_bar_aImg[temp2].style.opacity = newOpacity2 - (Math.random() / 100)
         if(oSider_bar_aImg[temp2].style.opacity <= 0) {
             oSider_bar_aImg[temp2].style.opacity = 0
             oSider_bar_aImg[temp2].classList.remove('active')
         }
         newOpacity3 = oSider_bar_aImg[temp3].style.opacity
         newOpacity3 = newOpacity3 == ''? 1 : parseFloat(oSider_bar_aImg[temp3].style.opacity)
-        oSider_bar_aImg[temp3].style.opacity = newOpacity2 - (Math.random() / 80)
+        oSider_bar_aImg[temp3].style.opacity = newOpacity2 - (Math.random() / 100)
         if(oSider_bar_aImg[temp3].style.opacity <= 0) {
             oSider_bar_aImg[temp3].style.opacity = 0
             oSider_bar_aImg[temp3].classList.remove('active')
@@ -177,3 +166,43 @@ indexBg2 = () => {
     addOpacity()
 }
 let timer2 = setInterval(indexBg2, 3800)
+
+/*video*/
+
+/*Scroll display*/
+
+let scroll = (scrollTop) => {
+    if(scrollTop > 120) {
+        oSider_bar_left.classList.add('active')
+        oSider_bar_right.classList.add('active')
+        setTimeout(() => {
+            oSider_bar_left.style.opacity = 1
+        }, 800)
+        setTimeout(() => {
+            oSider_bar_right.style.opacity = 1
+        }, 1000)
+    }
+}
+
+if(scrollTop > 200 && scrollTop < 300) {
+    scroll(scrollTop)
+} else if(scrollTop > 560) {
+    scroll(scrollTop)
+} else {
+    console.log(scrollTop)
+}
+
+document.body.onmousewheel = function (event) {
+    console.log(scrollTop)
+    scrollTop = document.documentElement.scrollTop
+    if(scrollTop > 200) {
+        oArrow.classList.remove('updown')
+        headerDownLoad.classList.remove('hidden')
+    } else if(scrollTop == 200) {
+        oArrow.classList.add('updown')
+        headerDownLoad.classList.add('hidden')
+    } else {
+        return
+    }
+    scroll(scrollTop)
+}
