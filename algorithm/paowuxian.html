@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+function Fx(x) {
+    return x * Math.exp(x) - 1
+}
+
+function Paowuxian(x0, x1, x2, e) {
+    let x, y, z, h1, h2, c1, c2, d, w, xi
+    x = x2
+    y = x1
+    z = x0
+    while (Math.abs(x - y) > e) {
+        h1 = y - z
+        h2 = x - y
+        c1 = Fx(y) - Fx(z) / h1
+        c2 = Fx(x) - Fx(y) / h2
+        d = (c1 - c2) / (h2 + h1)
+        w = c2 + h2 * d
+        xi = x - (2 * Fx(x)) / (w + (w / Math.abs(w)) * Math.sqrt(w * w - 4 * Fx(x) * d))
+        z = y
+        y = x
+        x = xi
+    }
+    console.log(xi)
+}
+Paowuxian(0.5, 0.6, 0.56532, 0.000001);
+</script>
+</html>
