@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>singleNumber</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    /**
+     * 找到不重复的元素
+     * @param {Array} 需要检测的数组
+     */
+    singleNumber = (x) => {
+        let obj = {}
+        for (let i = 0; i < x.length; i++) {
+            obj[x[i]] = obj[x[i]] ? obj[x[i]] + 1 : 1
+        }
+        for (let key in obj) {
+            if (obj[key] === 1) {
+                return Number(key)
+            }
+        }
+    }
+    console.log(singleNumber([2, 2, 1, 4, 4, 5, 5, 1, 8]))
+
+    /**
+     * 使用异或方法来进行检测，1 ^ 1 = 0，0 ^ 3 = 3，所以只需要遍历数组，将所有的值取异或，最终剩下的值，就是那个只出现一次的数字
+     * @param {Array} x
+     * @return {Number}
+     */
+    singleNumber2 = (x) => {
+        for (let i = 1; i < x.length; i++) {
+            x[0] ^= x[i]
+        }
+        return x[0]
+    }
+    console.log(singleNumber2([2, 2, 1, 4, 4, 5, 5, 1, 8]))
+</script>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    
+</body>
+</html>

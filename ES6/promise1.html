@@ -2,9 +2,20 @@
 <html>
 <head>
 	<title>promise1</title>
+	<style>
+		div { border: 1px solid #000; }
+		.c1 { background-color: #e3e3e3; }
+		.c2 {background-color: #000;}
+	</style>
 </head>
 <body>
-
+<div>
+	1
+	<div class="c1">
+		2
+		<div class="c2">3</div>
+	</div>
+</div>
 </body>
 <script type="text/javascript">
 	/*const promise = new Promise(function(resolve, reject) {
@@ -66,10 +77,28 @@
 	p2.then(result => console.log(result))
 	  .catch(error => console.log(error));*/
 
-	const p1 = new Promise(function (resolve, reject) {
-		setTimeout(() => reject(new Error('fail')), 3000)
+	/*const p1 = new Promise(function (resolve, reject) {
+		// setTimeout(() => reject(new Error('fail')), 3000)
 		// setTimeout(() => reject("new Error('fail')"), 3000)
+		throw new Error('test')
 	}).then(res => console.log(res))
-		.catch(res => console.log(res+"c"));
+		.catch(res => console.log(res+"c"))*/
+
+	let oDiv1 = document.getElementsByTagName('div')[0]
+	let oDiv2 = document.getElementsByClassName('c1')[0]
+	let oDiv3 = document.getElementsByClassName('c2')[0]
+	oDiv1.addEventListener('click', (e) => {
+		console.log('c1')
+	}, true)
+	oDiv2.addEventListener('click', (e) => {
+		// e.cancelBubble = true
+		// e.stopPropagation()
+		console.log('c2')
+	})
+	oDiv3.addEventListener('click', (e) => {
+		// e.cancelBubble = true
+		// e.stopPropagation()
+		console.log('c3')
+	}, true)
 </script>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>class</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    class person {
+        constructor(name = 'peter', age = '1', mother = null) {
+            this._name = name
+            this._age = age
+            this._mother = mother
+        }
+        get name() {
+            return this._name
+        }
+        set name(name) {
+            this._name = name
+        }
+        get age() {
+            return this._age
+        }
+        set age(age) {
+            this._age = age
+        }
+        get mother() {
+            return this._mother
+        }
+        set mother(mother) {
+            this._mother = mother
+        }
+        get relationship() {
+            return this.mother === null ? `name: ${this.name}, age: ${this.age}` : `mother: ${this.mother.relationship}, name: ${this.name}, age: ${this.age}`
+        }
+        go() {
+            return this.relationship
+        }
+    }
+    let ann = new person('ann', '81')
+    let candy = new person('candy', '28', ann)
+    let annie = new person('annie', '10', candy)
+    console.log(ann.relationship)
+    console.log(candy.relationship)
+    console.log(annie.relationship)
+    console.log(candy.go())
+</script>
+</html>

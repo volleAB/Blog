@@ -15,11 +15,12 @@
     -moz-osx-font-smoothing: grayscale;
 }*/
 
+@charset "utf-8"
+
 @font-face {
 	font-family: 'font';
 	src: url('./font.ttf');
 }
-
 
 body,h1,h2,h3,p,ul {
 	margin: 0;

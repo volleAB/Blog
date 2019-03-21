@@ -3,15 +3,37 @@
 <head>
     <title>load</title>
     <style>
+        ul { margin: 0;padding: 10px;border: 1px solid #000; }
+        li { margin: 2px; }
+        li:first-child { background-color: #e3e3e3; }
+        li:nth-child(2) { background-color: #333; }
+        li:last-child { background-color: yellow; }
+        .circle~* { color: red; }
+        .box { box-sizing: content-box;width: 100px;height: 50px;margin: 10px;padding: 10px;border: 2px solid #000;background-color: red; }
     </style>
 </head>
 <body>
 <div class="circle" id="app">123</div>
+<ul>
+    <li>1<span>123123</span></li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<div class="box"></div>
 <script>
-let application = function () {
-    let components = new Array()
-    components.push(new Base())
-}
+    let oUl = document.getElementsByTagName('ul')[0]
+    let aLi = document.getElementsByTagName('li')
+    // for (let i = 0; i < aLi.length; i++) {
+    //     aLi[i].addEventListener('click', (e) => {
+    //         alert(i + 1)
+    //     })
+    // }
+    oUl.addEventListener('click', (e) => {
+        let target = e.target
+        if (target.nodeName.toLowerCase() == 'li') {
+            alert(`this is ul and ${target.innerHTML}`)
+        }
+    })
 </script>
 </body>
 </html>
