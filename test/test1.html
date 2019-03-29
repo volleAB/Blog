@@ -7,104 +7,28 @@
 <div></div>
 </body>
 <script type="text/javascript">
-/*let s1 = 'some string'
-let s3 = new String('some str')
-let s2 = s1.substring(2)
-let bool1 = new Boolean(false)
-let text = 'ca, bat, sat, fat'
-let result = text.replace(/(.at)/g, 'word ($1)')
-let s4 = s1.split(' ')
-console.log(s4)*/
-// console.log(bool1 && true)
-// console.log(s1.match(s2, 12))
-// console.log(s2)
-// Object.prototype.toString.call(q)
-// let num1 = 12.6
-// console.log(num1.toFixed(0))
-
-/*let person = new Object()
-person.name = 'Nicholas'
-person.age = 29
-person.job = 'Software Engineer'
-person.sayName = function () {
-    alert(this.name)
-}
-
-let a = person
-a.name = 'object'
-a.sayName()*/
-
-/*let book = {
-    _year: 2004,
-    edition: 21
-}
-Object.defineProperty(book, 'year', {
-    get: function () {
-        return this._year
-    },
-    set: function (newValue) {
-        if(newValue > 2004) {
-            this._year = newValue
-            this.edition = 'newValue - 2004'
-        }
-    }
-})*/
-/*Object.defineProperty(book, 'year', {
-    configurable: false,
-    value: '2018'
-})*/
-/*Object.defineProperty(book, 'year', {
-    configurable: true,
-    value: '2018'
-})*/
-/*console.log(book.year)
-delete book.year
-console.log(book.year)*/
-/*function myFun3 () {}
-
-myFun3.prototype = {
-    name: 'nabi',
-    age: 12,
-    show: function () {
-        alert(this.name, this.age)
-    }
-}
-
-let fun3 = new myFun3()
-fun3.show()*/
-let book = {}
-Object.defineProperties(book, {
-    _year: {
-        writeable: false,
-        value: '123'
-    },
-    edition: {
-        writeable: true,
-        value: 2,
-        // get: function () {
-        //     return this.value
-        // }
-    },
-    year: {
-        get: function () {
-            return this.year
-        },
-        set: function (newValue) {
-            this.year = newValue + 1000
-        }
-    }
-})
-book.edition = '456'
-console.log(book.edition)
-function Person(name, age, job) {
-    this.name = name
-    this.age = age
-    this.job = job
-    this.sayName = function() {
-        alert(this.name)
-    }
-}
-let a = new Person('lll', 12, 'engineer')
-a.sayName()
+var toUpperCase = function(x) { return x.toUpperCase(); };
+var hello = function(x) { return 'HELLO, ' + x; };
+var greet = function(x){
+    return hello(toUpperCase(x));
+};
+var compose = function(f,g) {
+    return function(x) {
+        return f(g(x));
+    };
+};
+var greet = compose(hello, toUpperCase);
+function compose() {
+    var args = arguments;
+    var start = args.length - 1;
+    return function() {
+        var i = start;
+        var result = args[start].apply(this, arguments);
+        while (i--) result = args[i].call(this, result);
+        return result;
+    };
+};
+console.log(greet('kevin'));
+void function () { alert('asd') }()
 </script>
 </html>
