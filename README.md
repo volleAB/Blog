@@ -1,8 +1,7 @@
-# blog
+# Blog
 
-:bookmark:
+:books: **Practice makes perfect.**
 
- **Practice makes perfect.**
+## 2019
 
-2018/3 start learn Vue.js
-2019/4 start Start blogging
+**三月**：[学习记录](articles/record.md)
