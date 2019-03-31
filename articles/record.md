@@ -13,4 +13,4 @@
 | 2018/12   | Start learn React |
 | 2019/4    | Start Start blogging |
 
-<img src="../images/record.jpg" width="900" height="300">
+<img src="../images/record.jpg" width="740" height="300">
