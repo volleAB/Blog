@@ -1,8 +1,6 @@
 # 学习记录
 
-## 记录下我的学习进程
-
-:bookmark:
+## :bookmark: 记录下我的学习进程
 
 | Time        | Content   |
 | --------   | -----:  |
@@ -13,4 +11,4 @@
 | 2018/12   | Start learn React |
 | 2019/4    | Start Start blogging |
 
-<img src="../images/record.jpg" width="740" height="300">
+<img src="../images/record.jpg" width="740" height="360">
