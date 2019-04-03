@@ -4,20 +4,37 @@
   <title></title>
 </head>
 <body>
+<div>123</div>
 <script>
-(function(){
-  var root = this
-  var _ = {}
-  root._ = _
-  _.reverse = function(string){
-    return string.split('').reverse().join('');
+function JQuery(selector) {
+  this.elements = [];
+  var nodeLists = document.getElementsByTagName(selector);
+  for (var i = 0; i < nodeLists.length; i++) {
+      this.elements.push(nodeLists[i]);
   }
-})()
-
-console.log(_.reverse('hello'))
-var _ = function(obj) {
-  if(!(this))
+  return this;
 }
+JQuery.prototype = {
+    eq: function(num){
+        this.elements = [this.elements[num]];
+        return this;
+    },
+    css: function(prop, val) {
+        this.elements.forEach(function(el){
+            el.style[prop] = val;
+        })
+        return this;
+    },
+    show: function() {
+        this.css('display', 'block');
+        return this;
+    }
+}
+window.$ = function(selector){
+    return new JQuery(selector)
+}
+
+$("div").eq(0).css("width", "200px").show();
 </script>
 </body>
 </html>
