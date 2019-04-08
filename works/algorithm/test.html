@@ -5,36 +5,26 @@
 </head>
 <body>
 <div>123</div>
+<div id="foo">foo</div>
 <script>
-function JQuery(selector) {
-  this.elements = [];
-  var nodeLists = document.getElementsByTagName(selector);
-  for (var i = 0; i < nodeLists.length; i++) {
-      this.elements.push(nodeLists[i]);
-  }
-  return this;
-}
-JQuery.prototype = {
-    eq: function(num){
-        this.elements = [this.elements[num]];
-        return this;
+var p = {
+    name:"chen",
+    work:function() {
+        console.log("wording...");
     },
-    css: function(prop, val) {
-        this.elements.forEach(function(el){
-            el.style[prop] = val;
-        })
-        return this;
+    _age:18,
+    get age(){
+        return this._age;
     },
-    show: function() {
-        this.css('display', 'block');
-        return this;
+    set age(val) {
+        if (val<0 || val> 100) {//如果年龄大于100就抛出错误
+            throw new Error("invalid value")
+        }else{
+            this._age = val;
+        }
     }
-}
-window.$ = function(selector){
-    return new JQuery(selector)
-}
-
-$("div").eq(0).css("width", "200px").show();
+};
+console.log(p.name);//输出chen
 </script>
 </body>
 </html>
