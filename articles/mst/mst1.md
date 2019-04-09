@@ -284,8 +284,6 @@ HTTP/2肯定是要比HTTP/1要快很多的，只需要升级到该协议就可�
 
 基于UDP协议。
 
----
-
 ## 分享
 [Skillet - One day too late](https://music.163.com/#/song?id=19164061&autoplay=true&market=baiduhd)
 

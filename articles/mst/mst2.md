@@ -97,7 +97,7 @@ Date: ...   //以上是响应头
 ### 状态行
 ``HTTP/1.1 200 OK``
 
-状态行也由三部分组成：服务器HTTP协议版本，响应状态码，状态码的文本描述。
+状态行也由三部分组成：服务器HTTP协议版本，响应状态码，状态码的文本描述，各元素之间使用空格分割。
 
 ### 响应头
 **响应首部**
@@ -247,6 +247,44 @@ ETag: "17fd8-529a5fd20"
 4. 浏览器收到304的响应后，就会从缓存中加载资源。
 
 [浏览器缓存知识小结及应用](http://www.cnblogs.com/lyzg/p/5125934.html)
+
+[TCP_IP协议概述](../../works/resource)这里是我们老师上课用的PPT，我觉得说的可以就“偷”了过来。
+
+## 存储
+> cookie, localStorage, sessionStorage, indexDB都是在浏览器端存储服务器规定存储的数据
+
+| 特性 | 数据生命周期 | 数据存储大小 | 与服务器通信 |
+| ---  | ---------- | ----------- | ----------: |
+| cookie | 一般由服务器生成，可以设置过期时间 | 4K(4096B左右) | 大多数情况下每次都会携带在header中，对于请求性能影响 |
+| localStorage | 除非被清理，否则一直存在 | 5M | 不参与 |
+| sessionStorage | 页面关闭之后就清除 | 5M | 不参与 |
+| localStoraindexDBge | 除非被清理，否则一直存在 | 5M | 不参与 |
+
+### cookie
+> Cookie利用了P3P协议对其进行保护，P3P能够自动识别多种cookies的嵌入方式，然后对有关的Cookie自动拒绝
+1. 浏览器通过HTTP Request中的“Cookie: header”,将Cookie发送给web服务器
+2. Web服务器通过HTTP Response中的"Set-Cookie: header"把cookie发送给浏览器
+```
+Set-Cookie：SID = 31d4d96e407aad42; Path= /; Domain = example.com
+
+Set-Cookie: SID=31d4d96e407aad42; Path=/; Secure; HttpOnly
+```
+服务器决定是否需要cookie，然后浏览器通过set-cookie字段的要求，在http请求中自动包装cookie进行传输。
+
+每个域下，Cookie的数量是有限制的，当超过限制时，浏览器会清除以前设置的Cookie。Firefox 每个域名 cookie 限制为 50 个，并会随机清除。ie(7+ 50个上限)和Opera(30个上限)会删除使用最少的， Safari和Chrome对于每个域下的cookie的数量限制没有硬性规定，cookie的大小大约在4096B(加减1)的长度范围，尺寸Cookie影响到的是域下的所有Cookie，并非每个cookie单独受到限制。Firefox 和 Safari 允许 cookie 多达 4097 个字节，包括名（ name ）、值（ value ）和等号。 Opera 许 cookie 多达 4096 个字节，包括：名（ name ）、值（ value ）和等号。 Internet Explorer 允许 cookie 多达 4095 个字节，包括：名（ name ）、值（ value ）和等号。
+
+**Session cookie**
+
+临时cookie，不设置过期时间，则表示这个cookie生命周期为浏览器会话期间，只要关闭浏览器窗口，cookie就消失了。这种生命期为浏览会话期的cookie被称为会话cookie。会话cookie一般不保存在硬盘上而是保存在内存里。
+
+**Persistent cookie**
+永久cookie，设置了过期时间，浏览器就会把cookie保存到硬盘上，关闭后再次打开浏览器，这些cookie依然有效直到超过设定的过期时间。
+
+存储在硬盘上的cookie可以在不同的浏览器进程间共享，比如两个IE窗口。而对于保存在内存的cookie，不同的浏览器有不同的处理方式。
+
+> sessionStorage 和 localStorage 是 HTML5 Web Storage API 提供的
+
+sessionStorage 的概念很特别，引入了一个``浏览器窗口``的概念。 sessionStorage 是在同源的同窗口（或tab）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后， sessionStorage 即被销毁。同时“独立”打开的不同窗口，即使是同一页面， sessionStorage 对象也是不同的。
 
 ## 分享
 
