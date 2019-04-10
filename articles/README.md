@@ -1,6 +1,6 @@
 # 分类
 
- :star_struck:
+0.0:star_struck:
 
 ## 面试题
 

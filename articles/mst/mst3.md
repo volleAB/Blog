@@ -73,9 +73,35 @@ img { float: right }
 
 ## 回流重绘
 
-https://segmentfault.com/a/1190000017329980
-https://segmentfault.com/a/1190000012925872#articleHeader16
-https://www.imooc.com/article/45936
-https://kb.cnblogs.com/page/534571/
-http://taligarsiel.com/Projects/howbrowserswork1.htm
-https://zhuanlan.zhihu.com/p/34453198?group_id=957277540147056640
+### 回流
+
+前面我们通过构造渲染树，我们将可见DOM节点以及它对应的样式结合起来，可是我们还需要计算它们在设备视口(viewport)内的确切位置和大小，这个计算的阶段就是回流。
+
+### 重绘
+
+最终，我们通过构造渲染树和回流阶段，我们知道了哪些节点是可见的，以及可见节点的样式和具体的几何信息(位置、大小)，那么我们就可以将渲染树的每个节点都转换为屏幕上的实际像素，这个阶段就叫做重绘节点。
+
+[你真的了解回流和重绘吗](https://segmentfault.com/a/1190000017329980)
+
+[前端性能优化：细说浏览器渲染的重排与重绘](https://www.imooc.com/article/45936)
+
+[从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理](https://segmentfault.com/a/1190000012925872) *
+
+[为什么说DOM操作很慢](https://kb.cnblogs.com/page/534571/)
+
+[How browsers work](http://taligarsiel.com/Projects/howbrowserswork1.htm) *
+
+这个内容有点多，我觉得大佬们说的很详细了。下一篇说下浏览器解析JS的情况。
+
+## 分享
+
+[Wish I Was Here](https://music.163.com/#/song?id=28773544)
+
+```
+Every road, that's wrong
+Seems like the road, I'm on
+Every sign just seems unclear
+Won't you come switch me on
+Don't, know where I've gone
+And I, I wish I was here
+```
