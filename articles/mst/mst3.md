@@ -81,6 +81,14 @@ img { float: right }
 
 最终，我们通过构造渲染树和回流阶段，我们知道了哪些节点是可见的，以及可见节点的样式和具体的几何信息(位置、大小)，那么我们就可以将渲染树的每个节点都转换为屏幕上的实际像素，这个阶段就叫做重绘节点。
 
+## 图层
+
+### 普通图层
+
+### 复合图层
+
+浏览器会将各层的信息发送给GPU，GPU会将各层合成（composite），显示在屏幕上。
+
 [你真的了解回流和重绘吗](https://segmentfault.com/a/1190000017329980)
 
 [前端性能优化：细说浏览器渲染的重排与重绘](https://www.imooc.com/article/45936)
@@ -95,7 +103,7 @@ img { float: right }
 
 ## 分享
 
-[Wish I Was Here](https://music.163.com/#/song?id=28773544)
+[Coldplay / Cat Power - Wish I Was Here](https://music.163.com/#/song?id=28773544)
 
 ```
 Every road, that's wrong
