@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>circle</title>
+  <style>
+        ::-webkit-scrollbar{display:none;}html,body{overflow:hidden;height:100%;margin:0;}
+        .vlaue { display: flex;justify-content: space-around;align-items: center; }
+        input { padding: 10px 20px;margin-left: 10px;border-radius: 4px;font-size: 20px; }
+        input:focus { outline: none; }
+        button { position: relative;left: 50%;width: 100px;height: 40px;padding: 10px;border: none;border-radius: 4px;transform: translateX(-60px);background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);color: #fff;font-size: 20px;cursor: pointer;transition: transform .4s;transform-origin: left; }
+        button::before { position: absolute;top: 4px;left: 0;display: inline-block;content: '';width: 80px;height: 20px;padding: 10px;background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);filter: blur(0.4rem);opacity: 0.7; }
+        button:focus { outline: none; }
+        button:active { transform: scale(.5);transform-origin: left; }
+    </style>
+</head>
+<body>
+<div id="mountNode"></div>
+<div class="vlaue">
+    <div><span>radius:</span><input type="text" placeholder="please input start point" id="txt0"></div>
+</div>
+<button>Submit</button>
+<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/document.body.clientHeight;</script>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.5.1/dist/g2.min.js"></script>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
+<script>
+  function bresenham_arc(r) {
+    let newArr = [];
+    let newData = {};
+    let x = 0;
+    let y = r;
+    let d = 3 - 2 * r;
+    while(x < y) {
+      newData = {
+        x,
+        y
+      };
+      newArr.push(newData);
+
+      if(d <= 0) {
+        d = d + 4 * x + 6;
+      } else {
+        d = d + 4 * (x - y) + 10;
+        y--;
+      }
+
+      x++;
+    }
+    // console.log(newArr);
+    if (x === y) {
+      newData = {
+        x,
+        y
+      };
+      newArr.push(newData);
+    }
+    return newArr;
+  }
+  let data = bresenham_arc(5);
+  // console.log(data);
+  // data = [{x: 1, y: 5}, {x: 1, y: 0}, {x: 2, y: 5}, {x: 3, y: 4}, {x: 4, y: 3}, {x: 5, y: 2}, {x: 5, y: 1}, {x: 5, y: 0}];
+  chart = new G2.Chart({
+      container: 'mountNode',
+      forceFit: true,
+      height: '500'
+    });
+  chart.source(data);
+  chart.scale('y', {
+    min: 0
+  });
+  chart.scale('x', {
+    range: [0, 1]
+  });
+  chart.tooltip({
+    crosshairs: {
+      type: 'line'
+    }
+  });
+  chart.line().position('x*y');
+  chart.point().position('x*y').size(4).shape('circle').style({
+    stroke: '#fff',
+    lineWidth: 1
+  });
+  chart.render();
+  console.log(bresenham_arc(5));
+</script>
+</body>
+</html>

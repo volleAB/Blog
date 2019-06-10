@@ -28,6 +28,7 @@
 <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
 <script>
     let data, chart, oTxt0, oTxt1, p0 = 1, p1, oBtn;
+
     function getValue(node) {
         if(node.getAttribute('id') == 'txt0') {
             node.onchange = () => {
@@ -41,6 +42,7 @@
             }
         }
     }
+
     function bresenham(p0, p1) {
         let newArr = [];
         let newData = {};
@@ -66,19 +68,23 @@
             x = x + 1;
             e = e + 2 * dy;
         }
+        console.log(newArr);
         return newArr;
     }
+    
     oBtn = document.getElementsByTagName('button')[0];
     oTxt0 = document.getElementsByTagName('input')[0];
     oTxt1 = document.getElementsByTagName('input')[1];
-    
+
     getValue(oTxt0);
     getValue(oTxt1);
     oBtn.onclick = () => {
-        data = bresenham(p0, p1);
+        console.log(p0, p1)
+        data = bresenham([1, 2], [10, 10]);
+        // console.log(data);
         chart = new G2.Chart({
             container: 'mountNode',
-            forceFit: true, 
+            forceFit: true,
             height: '500'
           });
           chart.source(data);
