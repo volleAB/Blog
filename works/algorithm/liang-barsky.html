@@ -31,8 +31,8 @@
   let xL = 2, xR = 5, yT = 6, yB = 3, visible = false;
   let t0 = 0, t1 = 1;
   let newData;
-  // let data = [{x: 2, y: 0, id: '1'}, {x: 2, y: 8, id: '1'}, {x: 5, y: 0, id: '2'}, {x: 5, y: 8, id: '2'}, {x: 0, y: 3, id: '3'}, {x: 8, y: 3, id: '3'}, {x: 0, y: 6, id: '4'}, {x: 8, y: 6, id: '4'}, {x: 1, y: 3, id: '5'}, {x: 2, y: 4, id: '5'}, {x: 3, y: 5, id: '5'}, {x: 4, y: 6, id: '5'}, {x: 5, y: 7, id: '5'}];
-  let data = [{x: 2, y: 0, id: '1'}, {x: 2, y: 8, id: '1'}, {x: 5, y: 0, id: '2'}, {x: 5, y: 8, id: '2'}, {x: 0, y: 3, id: '3'}, {x: 8, y: 3, id: '3'}, {x: 0, y: 6, id: '4'}, {x: 8, y: 6, id: '4'}]
+  let data = [{x: 2, y: 0, id: '1'}, {x: 2, y: 8, id: '1'}, {x: 5, y: 0, id: '2'}, {x: 5, y: 8, id: '2'}, {x: 0, y: 3, id: '3'}, {x: 8, y: 3, id: '3'}, {x: 0, y: 6, id: '4'}, {x: 8, y: 6, id: '4'}, {x: 1, y: 3, id: '5'}, {x: 2, y: 4, id: '5'}, {x: 3, y: 5, id: '5'}, {x: 4, y: 6, id: '5'}, {x: 5, y: 7, id: '5'}];
+  // let data = [{x: 2, y: 0, id: '1'}, {x: 2, y: 8, id: '1'}, {x: 5, y: 0, id: '2'}, {x: 5, y: 8, id: '2'}, {x: 0, y: 3, id: '3'}, {x: 8, y: 3, id: '3'}, {x: 0, y: 6, id: '4'}, {x: 8, y: 6, id: '4'}];
   function clipt(q, d) {
     let t;
     // console.log(t0, t1);
@@ -90,8 +90,8 @@
     return data;
   }
 
-  newData = Liang_Barsky();
-  data.push(...newData);
+  // newData = Liang_Barsky();
+  // data.push(...newData);
   var chart = new G2.Chart({
     container: 'mountNode',
     forceFit: true,

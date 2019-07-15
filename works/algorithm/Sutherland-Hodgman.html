@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sutherland-Hodgman</title>
+</head>
+<body>
+<script>
+for(i=0；i<n；i++)
+　　　{
+　　　　if(当前第i个顶点是否在边界内侧？)
+
+{
+　　　　　if(flag!=0) /*前一个点在外侧吗？*/
+　　　　　{
+　　　　　　flag=0；/*从外到内的情况，将标志置0,作为下一次循环的前一点标志*/
+　　　　　　(dest + j) =求出交点；　/*将交点dest放入新多边形*/
+
+j++；
+}
+　　　　　
+　　　　　(dest + j)= (src + i)； /*将当前点srci放入新多边形*/
+
+j++；
+}
+　　　else
+　　　{
+　　　　　if(flag==0) /*前一个点在内侧吗？*/
+　　　　　{
+　　　　　　flag=1；/*从内到外的情况，将标志置1,作为下一次循环的前一点标志*/
+　　　　　　(dest + j) =求出交点；　/*将交点dest放入新多边形*/
+
+j++；
+}
+　　 }
+　　　　s= (src + i)； /*将当前点作为下次循环的前一点*/
+　}
+</script>
+</body>
+</html>
