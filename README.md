@@ -10,7 +10,7 @@
 
 ## 2019
 
-**七月**：[输入URL到展示的过程（js解析）](articles/mst/mst3.md) :star: 
+**七月**：[输入URL到展示的过程（js解析）](articles/mst/mst4.md)| [React.Purecomponent](articles/learn/PureComponent.md) :star: 
 
 **四月**：[输入URL到展示的过程（渲染篇）](articles/mst/mst3.md)| [输入URL到展示的过程（网络篇续）](articles/mst/mst2.md)
 
